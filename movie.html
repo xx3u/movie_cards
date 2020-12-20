@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/movie.css">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div class="movie-cards" id="app"></div>
+    <script type="text/babel">
+        const Film = (props) => {
+            return (
+                <div class="movie_card" id={props.id}>
+                    <div class="info_section">
+                        <div class="movie_header">
+                            <img class="locandina" src={props.img}/>
+                            <h1>{props.title}</h1>
+                            <h4>{props.year}</h4>
+                            <span class="minutes">{props.min}</span>
+                            <p class="type">{props.type}</p>
+                        </div>
+                        <div class="movie_desc">
+                            <p class="text">
+                                {props.text}
+                            </p>
+                        </div>
+                        <div class="movie_social">
+                            <ul>
+                                <li><i class="material-icons share"></i></li>
+                                <li><i class="material-icons chat"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class={props.back}></div>
+                </div>
+            );
+        };
+        const Films = () => {
+            return (
+                <React.Fragment>
+                    <Film id="Joker" img="img/joker.jpg" title="Joker" year="2019, Todd Phillips" min="122 min" type="Crime, Drama" text="Arthur Fleck, a party clown, leads an impoverished life with his ailing mother. However, when society shuns him and brands him as a freak, he decides to embrace the life of crime and chaos." back="blur_back joker_back" />
+                    <Film id="X" img="img/x.png" title="American History X" year="1998, Tony Kaye" min="119 min" type="Drama, Crime" text="Derek, who has served three years in prison for a hate crime, tries to change the thoughts of his brother, Danny, who is following the same path." back="blur_back x_back" />
+                    <Film id="Shutter" img="img/shutter.jpg" title="Shutter Island" year="2010, Martin Scorsese" min="139 min" type="Thriller, Mystery" text="Teddy Daniels and Chuck Aule, two US marshals, are sent to an asylum on a remote island in order to investigate the disappearance of a patient, where Teddy uncovers a shocking truth about the place. " back="blur_back shutter_back" />
+                </React.Fragment>
+            );
+        };
+        const App = () => {
+            return (
+                <Films />
+            );
+        };
+        const container = document.getElementById('app');
+        ReactDOM.render(<Films />, container);
+    </script>
+</body>
+</html>
